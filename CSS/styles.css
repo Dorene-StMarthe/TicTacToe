@@ -7,6 +7,19 @@ body, html{
     text-align: center;
 }
 
+.btn {
+    background-color: #FAAF42;
+    color: black;
+    float: right;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}
 .title{
     font-size: 40px;
     font-family: 'Rubik Mono One', sans-serif;
@@ -44,6 +57,7 @@ body, html{
     align-items: center;
     justify-content: center;
     transform: translate(27%, -10%);
+    box-shadow: 0 0 0 1px #333333;
    
    
 }
@@ -83,9 +97,6 @@ body, html{
     background-color:#ba954664;
 }
 
-
-
-
     @media (max-width: 660px) {
         .title {
           font-size: 60px;
@@ -110,6 +121,4 @@ body, html{
         width: 100%;
         height: 50px;
         font-size: bold;
-       
-
       }
