@@ -1,5 +1,5 @@
 body, html{
-    margin: 5px;
+    margin: 0  60px;
     background-image: url("/CSS/fireworks\ background.jpg");
     height: 100%;
     background-position: center;
@@ -27,8 +27,9 @@ body, html{
 }
 
 .gameField{
+    position: relative;
+    display: flex;
     
-
 }
 
 .board{
@@ -36,24 +37,32 @@ body, html{
     gap: 20px;
     background-color: #6F5939;
     grid-template-columns: repeat(3, 1fr);
-    width: 50%;
     height: 550px;
-  
-}
+    border-radius: 25px;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+    
+    
+    transform: translate(27%, -10%);
     
 
+}
 .player1, .player2 {
         height: 400px;
         background: #BA9546;
         border-radius: 30px;
-      
-        width: 15%;
+        width: 200px; 
+
+       
+       
       }
 .player1 {
     float:left;
     
 }
 .player2 {
-    float:right;
+   float:right;
+   margin: 0 0 0 300px;
     
 }
