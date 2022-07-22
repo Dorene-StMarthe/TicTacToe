@@ -16,14 +16,31 @@ const winCombo = [
 
 
 
-document.querySelectorAll('.square').forEach(square => square.addEventListener('click', ());
-document.querySelector('.btn-PlayAgain').addEventListener('click', ());
+document.querySelectorAll('.square').forEach(square => square.addEventListener('click', clickedSquareEvent));
+
+
+
+
+
+
+function clickedSquareEvent(squareSelection) {
+  const chosenSquare = squareSelection.target;
+  const idx = parseInt(chosenSquare.getAttribute('box'));
+
+  if (gameBoard[idx] !== "" || !gameActive) {
+      return;
+  }
+
+  squareChosen(chosenSquare, idx);
+  gameResults();
+}
 
 
 function squareChosen( chosenSquare, idx) {
   gameBoard[idx] = currentPlayer;
   chosenSquare.textContent = currentPlayer;
 }
+
 
 
 function gameResults(){
@@ -42,4 +59,3 @@ function gameResults(){
         }
     }
 }
-console.log(gameResults[1]);
