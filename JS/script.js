@@ -1,8 +1,21 @@
-//Variables
 const gameStatus = document.querySelector('.displayMessage');
 
 let gameBoard = ["", "", "", "", "", "", "", "", ""];
-let currentPlayer = "X";
+let currentPlayer = "X"
+
+let playerOne = "CSS/Player1avatar.png"
+let playerTwo = "CSS/Player2avatar.png"
+
+const audio = new Audio("https://www.fesliyanstudios.com/play-mp3/387");
+const buttons = document.querySelectorAll('.square');
+
+buttons.forEach(square => {
+  square.addEventListener("click", () => {
+    audio.play();
+  });
+});
+
+
 
 const winCombo = [
   [0, 1, 2],
@@ -15,6 +28,10 @@ const winCombo = [
   [2, 4, 6]
 ];
 
+const winningDisplay = () => "Player " + currentPlayer + " Won!";
+const tiedGameMessage = () => "Tied Game!";
+const playersTurn = () => "It's " + currentPlayer + " turn!";
+gameStatus.textContent = playersTurn();
 
 
 document.querySelectorAll('.square').forEach(square => square.addEventListener('click', clickedSquareEvent));
@@ -30,7 +47,7 @@ function clickedSquareEvent(squareSelection) { //When a square is clicked execut
   squareChosen(chosenSquare, idx);
   gameResults();
 }
-//handle Player change
+
 function squareChosen( chosenSquare, idx) {
   gameBoard[idx] = currentPlayer;
   chosenSquare.textContent = currentPlayer;
@@ -38,7 +55,24 @@ function squareChosen( chosenSquare, idx) {
 
 
 
+//Ternary 
+function players() {
+  currentPlayer = currentPlayer === "X" ? "O" : "X";  //players
+    gameStatus.textContent = playersTurn();
 
+}
+
+/*
+//If else
+let otherPlayer;
+if (currentplayer === "X"){
+  otherPlayer= "O"}
+  else{
+    otherPlayer= "X"
+  }
+*/
+
+let gameActive = true;
 function gameResults(){
   let winningGame = false; //initializes game response to winning the game as false until conditions are met. 
   for (let i=0; i <= 7; i++) {//iterating through winning combos [0-7]
@@ -67,37 +101,14 @@ let gameTie= !gameBoard.includes("");
     }
       players();
 }
-//handle player change
-//Ternary 
-function players() {
-  currentPlayer = currentPlayer === "x" ? "O" : "X";  //players
-    gameStatus.textContent = playersTurn();
-}
-
-/*
-//If else
-let otherPlayer;
-if (currentplayer === "x"){
-  otherPlayer= "O"}
-  else{
-    otherPlayer= "x"
-  }
-*/
-
-let gameActive = true;
-
 
 function playAgainOption() {
   gameActive = true;
   currentPlayer = "X";
   gameBoard = ["", "", "", "", "", "", "", "", ""];
-  gameStatus.innerHTML = playersTurn();;
-  document.querySelectorAll('square').forEach(square => square.textContent = "");
+  gameStatus.textContent = playersTurn();
+  document.querySelectorAll('.square').forEach(square => square.textContent = "");
+ square.classList.toggle("flipCard")
+
 }
 
-
-
-const winningDisplay = () => "Player" + currentPlayer + " Won!";
-const tiedGameMessage = () => "Tied Game!"
-const playersTurn = () => "It's" + currentPlayer + " turn!";
-gameStatus.textContent = playersTurn();

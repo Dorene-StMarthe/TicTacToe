@@ -10,14 +10,13 @@ body, html{
 .btn-PlayAgain {
     background-color: #FAAF42;
     color: black;
-  
+    cursor: pointer;
     border: none;
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     margin: 4px 2px;
-  
     border-radius: 10px;
 }
 .title{
@@ -64,7 +63,7 @@ body, html{
 }
     
 .square {
-    background-color:#6F5939;
+    background-color:#1E1E1E;
     width: 115px;
     height: 115px;
     border: 1px solid ;
@@ -74,8 +73,13 @@ body, html{
     user-select: none;
     border-radius: 30px;
     margin: 0 20px;
+    transform-style: preserve-3d;
+    transition: all 0.8 ease;
+    
 }
-
+.square .flipCard{
+transform: rotateY(380deg);
+}
 
 .player1, .player2 {
         height: 250px;
@@ -84,7 +88,21 @@ body, html{
         width: 160px; 
         font-family: 'Rubik Mono One', sans-serif;
         padding-top: 15px;
-      }
+        animation-name: floating;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+        margin-left: 30px;
+        margin-top: 5px;
+    }
+     
+    @keyframes floating {
+        0% { transform: translate(0,  0px); }
+        50%  { transform: translate(0, 15px); }
+        100%   { transform: translate(0, -0px); }   
+    }
+
+
 .player1 {
     float:left;
     
@@ -100,22 +118,23 @@ body, html{
 
     @media (max-width: 660px) {
         .title {
-          font-size: 60px;
+          font-size: 30px;
         }
       
       
        .board {
-          width: 304px;
-          height: 304px;
+          width: 370px;
+          height: 370px;
         }
       
         .square {
-          width: 100px;
-          height: 100px;
+          width: 90px;
+          height: 90px;
           font-size: 70px;
-          color: yellow;
+          background-color: #1E1E1E;
         }
-      }
+        
+        }
       
       footer {
         color:#c7b671;
@@ -134,5 +153,11 @@ body, html{
     }
 
     .displayMessage {
-        color: yellow;
-}
+        color: #1E1E1E;
+        background-color:#c7b671;
+        font-family: 'Rubik Mono One', sans-serif;
+        border-radius: 40px;
+    }
+
+
+    
