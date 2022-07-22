@@ -1,6 +1,4 @@
 let gameBoard = ["", "", "", "", "", "", "", "", ""];
-
-
 let currentPlayer = "X";
 
 const winCombo = [
@@ -15,14 +13,13 @@ const winCombo = [
 ];
 
 
-
+gameStatus.textContent = playersTurn();
 document.querySelectorAll('.square').forEach(square => square.addEventListener('click', clickedSquareEvent));
+const gameStatus = document.querySelector('.displayMessage');
 
+const winningDisplay = () => "Player" + currentPlayer + " Won!";
 
-
-
-
-
+//_handleCellClick
 function clickedSquareEvent(squareSelection) {
   const chosenSquare = squareSelection.target;
   const idx = parseInt(chosenSquare.getAttribute('box'));
@@ -36,6 +33,8 @@ function clickedSquareEvent(squareSelection) {
 }
 
 
+
+// _handleCellPlayed
 function squareChosen( chosenSquare, idx) {
   gameBoard[idx] = currentPlayer;
   chosenSquare.textContent = currentPlayer;
@@ -43,6 +42,7 @@ function squareChosen( chosenSquare, idx) {
 
 
 
+//_handleResultsValidation
 function gameResults(){
   let winningGame = false; //initializes game response to winning the game as false until conditions are met. 
   for (let i=0; i <= 7; i++) {//iterating through winning combos [0-7]
@@ -56,6 +56,21 @@ function gameResults(){
         if (playerSign1 === playerSign2 && playerSign2 === playerSign3) { //if player game symbols ("X || O" ) are all equal to each other, player wins!
             winningGame = true;   
             break // end loop
-        }
-    }
+        } }
+  if (winningGame) {
+  gameStatus.textContent = winningDisplay();
+  gameActive = false;
+  return;
 }
+
+players();
+}
+
+//_handlePlayerChange
+function players() {
+  currentPlayer =currentPlayer === "x" ? "O" : "X";
+    gameStatus.textContent = playersTurn();
+}
+
+let gameActive = true;
+
