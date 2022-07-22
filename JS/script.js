@@ -8,12 +8,14 @@ let playerTwo = "CSS/Player2avatar.png"
 
 const audio = new Audio("https://www.fesliyanstudios.com/play-mp3/387");
 const buttons = document.querySelectorAll('.square');
-
 buttons.forEach(square => {
   square.addEventListener("click", () => {
     audio.play();
   });
 });
+
+
+
 
 
 
@@ -85,11 +87,13 @@ function gameResults(){
         }
         if (playerSign1 === playerSign2 && playerSign2 === playerSign3) { //if player game symbols ("X || O" ) are all equal to each other, player wins!
             winningGame = true;   
+
             break // end loop
         } }
   if (winningGame) {
   gameStatus.textContent = winningDisplay();   //display winners message
   gameActive = false;
+  
   return;
 }
 

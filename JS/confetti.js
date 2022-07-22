@@ -1,3 +1,0 @@
-startConfetti();
-
-stopConfetti();
