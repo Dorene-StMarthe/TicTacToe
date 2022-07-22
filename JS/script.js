@@ -31,4 +31,34 @@ const playAgain = () => {
 
 return { squareSetUp, getSquare, playAgain };
 })();
-console.log(squareSetUp (2,X));
+
+
+
+
+const game = (() => {
+  const player1 = Player("X");
+  const player2 = Player("0");
+  let round =1;
+  let finish = false;
+}
+
+
+
+
+
+
+
+
+//if any combo returns true, then x || o wins!
+const winCombo = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6],
+];
+
+
