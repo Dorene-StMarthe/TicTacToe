@@ -75,7 +75,6 @@ body, html{
     margin: 0 20px;
     transform-style: preserve-3d;
     transition: all 0.8 ease;
-    
 }
 .square .flipCard{
 transform: rotateY(380deg);
@@ -160,4 +159,9 @@ transform: rotateY(380deg);
     }
 
 
-    
+img {
+    margin-top: 50px;
+    width:100px;
+    height: auto;
+
+    }
