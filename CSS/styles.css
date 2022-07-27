@@ -76,8 +76,9 @@ body, html{
     transform-style: preserve-3d;
     transition: all 0.8 ease;
 }
-.square .flipCard{
-transform: rotateY(380deg);
+
+.flipCard{
+transform: rotateY(180deg);
 }
 
 .player1, .player2 {

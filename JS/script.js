@@ -15,6 +15,8 @@ buttons.forEach(square => {
 });
 
 
+const winningSound = new Audio("https://pixabay.com/sound-effects/horn-stabs-entrance-14741/");
+
 
 
 
@@ -37,7 +39,7 @@ gameStatus.textContent = playersTurn();
 
 
 document.querySelectorAll('.square').forEach(square => square.addEventListener('click', clickedSquareEvent));
-document.querySelector('.btn-PlayAgain').addEventListener('click', playAgainOption);
+document.querySelector('.btn-PlayAgain').addEventListener('click', playAgainOption, flipCard);
 
 
 function clickedSquareEvent(squareSelection) { //When a square is clicked execution
@@ -92,10 +94,11 @@ function gameResults(){
         } }
   if (winningGame) {
   gameStatus.textContent = winningDisplay();   //display winners message
+  winningSound.play();
   gameActive = false;
-  
   return;
 }
+
 
 let gameTie= !gameBoard.includes("");
     if (gameTie) {
@@ -106,13 +109,18 @@ let gameTie= !gameBoard.includes("");
       players();
 }
 
+
+
 function playAgainOption() {
-  gameActive = true;
+  gameActive = true;                                  
   currentPlayer = "X";
   gameBoard = ["", "", "", "", "", "", "", "", ""];
   gameStatus.textContent = playersTurn();
   document.querySelectorAll('.square').forEach(square => square.textContent = "");
- square.classList.toggle("flipCard")
-
 }
 
+const card = document.querySelectorAll('.square')
+ card.addEventListerner('click',flipCard);
+ function flipCard() {
+  card.classList.toggle('flipCard');
+ }
